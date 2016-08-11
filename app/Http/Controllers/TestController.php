@@ -29,7 +29,7 @@ class TestController extends Controller
 
     public function store(Request $request)
     {
-        $var=json_decode($json);
+        $var=json_decode($request->input('data'));
         $user=$var->loginuser[0]->user;
         $password=$var->loginuser[0]->password;
         return ['responsewebservice'    =>  [
