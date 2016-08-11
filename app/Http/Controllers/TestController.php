@@ -15,14 +15,28 @@ class TestController extends Controller
     public function __construct(){
 
     }
-    public function index($var="valor de var1")
+    public function index()
     {
-        return $var;
+        $json='{"loginuser":[{"user":"My Name","password":"My Password"},{"message":"Any Message"}]}';
+        $var=json_decode($json);
+        $user=$var->loginuser[0]->user;
+        $password=$var->loginuser[0]->password;
+        return ['responsewebservice'    =>  [['userdata'  => $user.' '.$password],
+                                            ['message'   =>  'Mi Mensaje'],
+                                            ['error'     =>  'mi mensaje de error si es que exite']]
+        ];
     }
 
     public function store(Request $request)
     {
-        $operation=$request->input('operation');
-        return $operation;
+        $var=json_decode($json);
+        $user=$var->loginuser[0]->user;
+        $password=$var->loginuser[0]->password;
+        return ['responsewebservice'    =>  [
+                                                ['userdata'  => $user.' '.$password],
+                                                ['message'   =>  'Mi Mensaje'],
+                                                ['error'     =>  'mi mensaje de error si es que exite']
+                                            ]];
     }
 }
+;
