@@ -6,14 +6,22 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+
+
 class TestController extends Controller
 {
-    public function index()
-    {
-        return 'get';
+    /**
+     * TestController constructor.
+     */
+    public function __construct(){
+
     }
-    public function store()
+    public function index($operstion)
     {
-        return 'post';
+        return "get";
+    }
+    public function test($operation){
+        return "recibi=". $operation;
     }
 }

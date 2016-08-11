@@ -15,5 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('test', 'TestController');
+Route::resource('test', 'TestController',
+    ['only' => ['index', 'store', 'update', 'destroy', 'show']]);
 
+
+Route::get('test2/{operation', 'TestController@test');
