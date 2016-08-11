@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-
 
 class TestController extends Controller
 {
@@ -17,11 +15,14 @@ class TestController extends Controller
     public function __construct(){
 
     }
-    public function index($operstion)
+    public function index($var="valor de var1")
     {
-        return "get";
+        return $var;
     }
-    public function test($operation){
-        return "recibi=". $operation;
+
+    public function store(Request $request)
+    {
+        $operation=$request->input('operation');
+        return $operation;
     }
 }

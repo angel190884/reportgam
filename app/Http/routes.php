@@ -18,5 +18,3 @@ Route::get('/', function () {
 Route::resource('test', 'TestController',
     ['only' => ['index', 'store', 'update', 'destroy', 'show']]);
 
-
-Route::get('test2/{operation', 'TestController@test');
