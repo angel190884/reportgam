@@ -12,9 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    abort(500);
 });
 
-Route::resource('test', 'TestController',
-    ['only' => ['index', 'store', 'update', 'destroy', 'show']]);
+Route::resource('login', 'loginController',
+    ['only' => ['store']]);
+
+Route::resource('report', 'reportController',
+    ['only' => ['store']]);
+
+Route::resource('sections', 'sectionsController',
+    ['only' => ['store']]);
+
 
